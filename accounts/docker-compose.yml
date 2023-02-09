@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+
+  accounts:
+    image: chariss/accounts:latest
+    mem_limit: 700m
+    ports:
+      - "8080:8080"
+    networks:
+      - charis-network
+    
+  loans:
+    image: chariss/loans:latest
+    mem_limit: 700m
+    ports:
+      - "8090:8090"
+    networks:
+      - charis-network
+    
+  cards:
+    image: chariss/cards:latest
+    mem_limit: 700m
+    ports:
+      - "9008:9008"
+    networks:
+      - charis-network
+  config-server:
+    image: chariss/config-server:latest
+    mem_limit: 700m
+    ports:
+      - "8071:8071"
+    networks:
+      - charis-network
+    
+networks:
+  charis-network:
